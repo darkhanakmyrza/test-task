@@ -56,5 +56,13 @@ public class TodoController {
         return ResponseEntity.status(200).body("Task with ID = " + taskId +" was deleted");
     }
 
+    @PostMapping("/done/{id}")
+    public ResponseEntity doneTaskById(
+            @PathVariable("id") int taskId
+    ){
+        taskService.taskDone(taskId);
+        return ResponseEntity.status(200).body("Task is done");
+    }
+
 
 }
